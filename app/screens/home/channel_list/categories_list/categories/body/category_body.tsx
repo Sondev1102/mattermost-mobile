@@ -20,11 +20,12 @@ type Props = {
     onChannelSwitch: (channel: Channel | ChannelModel) => void;
     unreadIds: Set<string>;
     unreadsOnTop: boolean;
+    isOnHome: boolean;
 };
 
 const extractKey = (item: ChannelModel) => item.id;
 
-const CategoryBody = ({sortedChannels, unreadIds, unreadsOnTop, category, onChannelSwitch}: Props) => {
+const CategoryBody = ({sortedChannels, unreadIds, unreadsOnTop, category, onChannelSwitch, isOnHome}: Props) => {
     const serverUrl = useServerUrl();
     const ids = useMemo(() => {
         const filteredChannels = unreadsOnTop ? sortedChannels.filter((c) => !unreadIds.has(c.id)) : sortedChannels;
@@ -49,7 +50,7 @@ const CategoryBody = ({sortedChannels, unreadIds, unreadsOnTop, category, onChan
                 testID={`channel_list.category.${category.displayName.replace(/ /g, '_').toLocaleLowerCase()}.channel_item`}
                 shouldHighlightActive={true}
                 shouldHighlightState={true}
-                isOnHome={true}
+                isOnHome={isOnHome ?? true}
             />
         );
     }, [onChannelSwitch]);

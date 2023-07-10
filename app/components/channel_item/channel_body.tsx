@@ -19,6 +19,7 @@ type Props = {
     textStyles: StyleProp<TextStyle>;
     testId: string;
     channelName: string;
+    isOnHome: boolean;
 }
 
 const getStyleSheet = makeStyleSheetFromTheme((theme) => {
@@ -51,6 +52,7 @@ export const ChannelBody = ({
     isMuted,
     textStyles,
     testId,
+    isOnHome,
 }: Props) => {
     const theme = useTheme();
     const styles = getStyleSheet(theme);
@@ -60,12 +62,12 @@ export const ChannelBody = ({
         <Text
             ellipsizeMode='tail'
             numberOfLines={1}
-            style={[textStyles, styles.flex]}
+            style={[textStyles, styles.flex, !isOnHome && {color: '#000'}]}
             testID={`${testId}.display_name`}
         >
             {nonBreakingDisplayName}
             {Boolean(channelName) && (
-                <Text style={styles.channelName}>
+                <Text style={[styles.channelName]}>
                     {nonBreakingString(` ~${channelName}`)}
                 </Text>
             )}

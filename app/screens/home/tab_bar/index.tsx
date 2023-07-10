@@ -12,6 +12,7 @@ import NavigationStore from '@store/navigation_store';
 import {changeOpacity, makeStyleSheetFromTheme} from '@utils/theme';
 
 import Account from './account';
+import DirectMessage from './direct_messages';
 import Home from './home';
 import Mentions from './mentions';
 import SavedMessages from './saved_messages';
@@ -64,6 +65,7 @@ const TabComponents: Record<string, any> = {
     Mentions,
     SavedMessages,
     Search,
+    DirectMessage,
 };
 
 function TabBar({state, descriptors, navigation, theme}: BottomTabBarProps & {theme: Theme}) {

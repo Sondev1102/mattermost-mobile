@@ -58,7 +58,7 @@ const Categories = ({
         if (unreadsOnTop) {
             return ['UNREADS' as const, ...orderedCategories];
         }
-        return orderedCategories;
+        return orderedCategories.slice(0, 2);
     }, [categories, onlyUnreads, unreadsOnTop]);
 
     const [initiaLoad, setInitialLoad] = useState(!categoriesToShow.length);
@@ -86,6 +86,7 @@ const Categories = ({
                     isTablet={isTablet}
                     locale={intl.locale}
                     onChannelSwitch={onChannelSwitch}
+                    isOnHome={true}
                 />
             </>
         );

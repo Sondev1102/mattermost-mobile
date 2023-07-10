@@ -20,6 +20,7 @@ import {notificationError} from '@utils/notification';
 
 import Account from './account';
 import ChannelList from './channel_list';
+import DirectMessage from './direct_message';
 import RecentMentions from './recent_mentions';
 import SavedMessages from './saved_messages';
 import Search from './search';
@@ -134,6 +135,11 @@ export default function HomeScreen(props: HomeProps) {
                     >
                         {() => <ChannelList {...props}/>}
                     </Tab.Screen>
+                    <Tab.Screen
+                        name={Screens.DIRECT_MESSAGE}
+                        component={DirectMessage}
+                        options={{tabBarTestID: 'tab_bar.direct_message.tab', unmountOnBlur: false, freezeOnBlur: true, lazy: true}}
+                    />
                     <Tab.Screen
                         name={Screens.SEARCH}
                         component={Search}

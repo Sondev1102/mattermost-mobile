@@ -14,6 +14,7 @@ export const CHANNEL_INFO = 'ChannelInfo';
 export const CHANNEL_NOTIFICATION_PREFERENCES = 'ChannelNotificationPreferences';
 export const CODE = 'Code';
 export const CREATE_DIRECT_MESSAGE = 'CreateDirectMessage';
+export const DIRECT_MESSAGE = 'DirectMessage';
 export const CREATE_OR_EDIT_CHANNEL = 'CreateOrEditChannel';
 export const CREATE_TEAM = 'CreateTeam';
 export const CUSTOM_STATUS = 'CustomStatus';
@@ -85,6 +86,7 @@ export default {
     CHANNEL_NOTIFICATION_PREFERENCES,
     CODE,
     CREATE_DIRECT_MESSAGE,
+    DIRECT_MESSAGE,
     CREATE_OR_EDIT_CHANNEL,
     CREATE_TEAM,
     CUSTOM_STATUS,

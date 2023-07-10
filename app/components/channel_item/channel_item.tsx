@@ -4,6 +4,7 @@
 import React, {useCallback, useMemo} from 'react';
 import {useIntl} from 'react-intl';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Divider} from 'react-native-elements';
 
 import Badge from '@components/badge';
 import ChannelIcon from '@components/channel_icon';
@@ -163,7 +164,7 @@ const ChannelItem = ({
 
     const containerStyle = useMemo(() => [
         styles.container,
-        isOnHome && HOME_PADDING,
+        HOME_PADDING,
         showActive && styles.activeItem,
         showActive && isOnHome && {
             paddingLeft: HOME_PADDING.paddingLeft - styles.activeItem.borderLeftWidth,
@@ -186,7 +187,7 @@ const ChannelItem = ({
                     membersCount={membersCount}
                     name={channel.name}
                     shared={channel.shared}
-                    size={24}
+                    size={isOnHome ? 24 : 32}
                     type={channel.type}
                     isMuted={isMuted}
                     style={styles.icon}
@@ -199,6 +200,7 @@ const ChannelItem = ({
                     testId={channelItemTestId}
                     textStyles={textStyles}
                     channelName={channelName}
+                    isOnHome={isOnHome}
                 />
                 <View style={styles.filler}/>
                 <Badge
@@ -214,6 +216,7 @@ const ChannelItem = ({
                 />
                 }
             </View>
+            {!isOnHome && <Divider style={{marginHorizontal: 30, marginVertical: 10}}/>}
         </TouchableOpacity>
     );
 };
