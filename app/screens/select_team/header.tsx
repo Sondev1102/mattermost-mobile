@@ -14,7 +14,7 @@ import {alertServerLogout} from '@utils/server';
 import {changeOpacity, makeStyleSheetFromTheme} from '@utils/theme';
 import {typography} from '@utils/typography';
 
-import Servers, {type ServersRef} from '../home/channel_list/servers';
+import Menu, {type ServersRef} from '../home/channel_list/menu';
 
 const getStyleSheet = makeStyleSheetFromTheme((theme: Theme) => ({
     header: {
@@ -86,7 +86,7 @@ function Header() {
 
     return (
         <>
-            {canAddOtherServers && <Servers ref={serverButtonRef}/>}
+            <Menu ref={serverButtonRef}/>
             <View style={headerStyle}>
                 {serverLabel}
                 <TouchableWithFeedback

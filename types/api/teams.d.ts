@@ -45,6 +45,12 @@ type Team = {
     last_team_icon_update: number;
 };
 
+type TeamPayload = {
+    display_name: string;
+    name: string;
+    type: TeamType;
+};
+
 type TeamsState = {
     currentTeamId: string;
     teams: Dictionary<Team>;

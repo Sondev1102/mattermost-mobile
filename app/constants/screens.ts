@@ -179,5 +179,4 @@ export const SCREENS_AS_BOTTOM_SHEET = new Set<string>([
 ]);
 
 export const NOT_READY = [
-    CREATE_TEAM,
 ];

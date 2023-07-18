@@ -165,6 +165,8 @@
   "channel_list.find_channels": "Find channels...",
   "channel_loader.someone": "Someone",
   "channel_modal.descriptionHelp": "Describe how this channel should be used.",
+  "team_modal.title" :"All team communication in one place, searchable and accessible anywhere",
+  "team_modal.description": "Name your team in any language. Your team name shows in menus and headings.",
   "channel_modal.header": "Header",
   "channel_modal.headerEx": "Use Markdown to format header text",
   "channel_modal.headerHelp": "Specify text to appear in the channel header beside the channel name. For example, include frequently used links by typing link text [Link Title](http://example.com).",

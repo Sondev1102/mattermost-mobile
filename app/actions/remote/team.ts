@@ -4,6 +4,7 @@
 import {DeviceEventEmitter} from 'react-native';
 
 import {removeUserFromTeam as localRemoveUserFromTeam} from '@actions/local/team';
+import {generateChannelNameFromDisplayName} from '@app/utils/channel';
 import {PER_PAGE_DEFAULT} from '@client/rest/constants';
 import {Events} from '@constants';
 import DatabaseManager from '@database/manager';
@@ -150,6 +151,31 @@ export async function sendEmailInvitesToTeam(serverUrl: string, teamId: string, 
         return {members};
     } catch (error) {
         logDebug('error on sendEmailInvitesToTeam', getFullErrorMessage(error));
+        forceLogoutIfNecessary(serverUrl, error);
+        return {error};
+    }
+}
+
+export async function createTeam(serverUrl: string, displayName: string, type: TeamType) {
+    try {
+        // EphemeralStore.creatingChannel = true;
+        const client = NetworkManager.getClient(serverUrl);
+
+        // const {operator} = DatabaseManager.getServerDatabaseAndOperator(serverUrl);
+        const name = generateChannelNameFromDisplayName(displayName);
+        const team = {
+            display_name: displayName,
+            name,
+            type,
+        } as TeamPayload;
+
+        const channelData = await client.createTeam(team);
+
+        // EphemeralStore.creatingChannel = false;
+        return {channel: channelData};
+    } catch (error) {
+        logDebug('error on createChannel', getFullErrorMessage(error));
+        EphemeralStore.creatingChannel = false;
         forceLogoutIfNecessary(serverUrl, error);
         return {error};
     }

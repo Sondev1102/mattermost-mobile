@@ -9,8 +9,7 @@ import {PUSH_PROXY_STATUS_UNKNOWN} from '@constants/push_proxy';
 import DatabaseManager from '@database/manager';
 import {observeTutorialWatched} from '@queries/app/global';
 import {observePushVerificationStatus} from '@queries/servers/system';
-
-import ServerItem from './server_item';
+import ServerItem from '@share/components/servers_list/server_item';
 
 import type ServersModel from '@typings/database/models/app/servers';
 

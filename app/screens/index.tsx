@@ -88,11 +88,15 @@ Navigation.setLazyComponentRegistrator((screenName) => {
         case Screens.CHANNEL_INFO:
             screen = withServerDatabase(require('@screens/channel_info').default);
             break;
+
         case Screens.CODE:
             screen = withServerDatabase(require('@screens/code').default);
             break;
         case Screens.CREATE_OR_EDIT_CHANNEL:
             screen = withServerDatabase(require('@screens/create_or_edit_channel').default);
+            break;
+        case Screens.CREATE_TEAM:
+            screen = withServerDatabase(require('@screens/create_team').default);
             break;
         case Screens.CUSTOM_STATUS:
             screen = withServerDatabase(require('@screens/custom_status').default);

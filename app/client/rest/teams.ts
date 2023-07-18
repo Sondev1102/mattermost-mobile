@@ -8,7 +8,7 @@ import {PER_PAGE_DEFAULT} from './constants';
 import type ClientBase from './base';
 
 export interface ClientTeamsMix {
-    createTeam: (team: Team) => Promise<Team>;
+    createTeam: (team: TeamPayload) => Promise<Team>;
     deleteTeam: (teamId: string) => Promise<any>;
     updateTeam: (team: Team) => Promise<Team>;
     patchTeam: (team: Partial<Team> & {id: string}) => Promise<Team>;

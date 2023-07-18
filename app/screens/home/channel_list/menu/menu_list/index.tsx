@@ -12,11 +12,9 @@ import {useIsTablet} from '@hooks/device';
 import BottomSheetContent from '@screens/bottom_sheet/content';
 import {addNewServer} from '@utils/server';
 
-import ServerItem from './server_item';
+import ServerItem from './menu_item';
 
 import type ServersModel from '@typings/database/models/app/servers';
-
-export {default as AddServerButton} from './add_server_button';
 
 type Props = {
     servers: ServersModel[];
